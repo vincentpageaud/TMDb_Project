@@ -2,7 +2,7 @@ import React from 'react'
 
 class Card extends React.Component {
     render(){
-        const {poster_path, title, overview} = this.props.result
+        const {poster_path, title, overview} = this.props
         return(
             <div className="col-sm-3 mb-4">
                 <div className="card">

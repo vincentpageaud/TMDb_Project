@@ -33,13 +33,13 @@ class LatestMovies extends React.Component {
         const {error, isLoaded, replyApi} = this.state
         const cards = () => {
             let reply = []
-            let i = 0
-
-            for(let result of replyApi.results){
-                if(i < 8){
-                    reply.push(<Card key={i++} result={result} />)
-                }
-            }
+            
+            reply = replyApi.results.map((item) => <Card
+                    key={item.id}
+                    poster_path={item.poster_path}
+                    title={item.title}
+                    overview={item.overview} >
+                </Card> ).slice(0, 8)
 
             return reply
         }
