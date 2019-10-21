@@ -33,14 +33,12 @@ class PopularSeries extends React.Component {
         const {error, isLoaded, replyApi} = this.state
         const cards = () => {
             let reply = []
-            
             reply = replyApi.results.map((item) => <Card
                     key={item.id}
                     poster_path={item.poster_path}
-                    title={item.title}
+                    title={item.name}
                     overview={item.overview.substr(0, 80) + "..."} >
                 </Card> ).slice(0, 8)
-
             return reply
         }
         

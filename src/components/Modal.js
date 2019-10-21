@@ -2,9 +2,7 @@ import React from 'react'
 
 const Modal = (props) => {
     return (
-        <div>
-            Coucou
-        </div>
+        <p>Modal test</p>
     )
 }
 
