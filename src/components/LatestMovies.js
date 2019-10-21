@@ -45,7 +45,7 @@ class LatestMovies extends React.Component {
         }
         
         if (error) {
-            return <div>Erreur : {error.message}</div>
+            return <div>Error : {error.message}</div>
         } else if (!isLoaded) {
             return (
                 <section className="container">
@@ -55,7 +55,7 @@ class LatestMovies extends React.Component {
         } else {
             return (
                 <section className="container">
-                    <h4>Derniers films au cinéma</h4>
+                    <h4>Latest films at the movie theater</h4>
                     <hr />
                     <div className="row m-3 mt-6">
                         {cards()}

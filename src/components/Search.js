@@ -33,7 +33,7 @@ class Search extends React.Component {
         } else {
             this.setState({
                 isLoaded: true,
-                error: "Une erreur c'est produite..."
+                error: "An error occured..."
             })
         }
     }

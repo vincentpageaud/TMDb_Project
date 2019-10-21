@@ -16,12 +16,12 @@ class Introduction extends React.Component{
         return(
             <section className="jumbotron">
                 <div className="container">
-                    <h1 className="display-5">Bienvenue sur TMDb_Project !</h1>
-                    <p className="lead">Ton site référence sur les films et séries.</p>
+                    <h1 className="display-5">Welcome to TMDb_Project !</h1>
+                    <p className="lead">Your reference on movies and series.</p>
                     <hr />
                     <form className="form-inline">
                         <input id="input-movie" className="col-sm-12 form-control" 
-                            type="search" placeholder="Recherche par film, série ou acteur..." 
+                            type="search" placeholder="Search by movie, TV show or actor..." 
                             aria-label="Search" onChange={this.handleChange.bind(this)} />
                     </form>
                     <Search keywords={this.state.valueSearch} />

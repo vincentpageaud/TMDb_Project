@@ -11,7 +11,7 @@ const Header = () => (
             </NavLink>
             <ul className="navbar-nav">
                 <li className="nav-item">
-                    <NavLink className="nav-link" to="/" exact={true}>Accueil</NavLink>
+                    <NavLink className="nav-link" to="/" exact={true}>Home</NavLink>
                 </li>
             </ul>
         </nav>

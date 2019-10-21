@@ -4,7 +4,7 @@ import Introduction from './Introduction'
 import LatestMovies from './LatestMovies'
 import PopularSeries from './PopularSeries'
 
-class Accueil extends React.Component {
+class Home extends React.Component {
     render(){
         return(
             <>
@@ -17,4 +17,4 @@ class Accueil extends React.Component {
     }
 }
 
-export default Accueil
+export default Home
