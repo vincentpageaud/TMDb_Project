@@ -1,5 +1,5 @@
 import React from 'react'
-import ParamsTmdbApi from '../ParamsTmdbApi'
+import SettingsTmdbApi from '../SettingsTmdbApi'
 import Card from './Card'
 import {FaSpinner} from 'react-icons/fa'
 
@@ -11,7 +11,7 @@ class PopularSeries extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${ParamsTmdbApi.apiKey}&language=${ParamsTmdbApi.language}&page=1`)
+        fetch(`https://api.themoviedb.org/3/tv/popular?api_key=${SettingsTmdbApi.apiKey}&language=${SettingsTmdbApi.language}&page=1`)
             .then(res => res.json())
             .then(
             (result) => {

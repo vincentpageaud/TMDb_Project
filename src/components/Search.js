@@ -1,5 +1,5 @@
 import React from 'react'
-import ParamsTmdbApi from '../ParamsTmdbApi'
+import SettingsTmdbApi from '../SettingsTmdbApi'
 import Card from './Card'
 
 class Search extends React.Component {
@@ -17,7 +17,7 @@ class Search extends React.Component {
     }
 
     async getMovies(keywords) {
-        let url = `https://api.themoviedb.org/3/search/multi?api_key=${ParamsTmdbApi.apiKey}&language=${ParamsTmdbApi.language}&query=${keywords}&page=1&include_adult=false&region=${ParamsTmdbApi.region}`;
+        let url = `https://api.themoviedb.org/3/search/multi?api_key=${SettingsTmdbApi.apiKey}&language=${SettingsTmdbApi.language}&query=${keywords}&page=1&include_adult=false&region=${SettingsTmdbApi.region}`;
         let res = await fetch(url, {
             method: "GET",
             headers: {

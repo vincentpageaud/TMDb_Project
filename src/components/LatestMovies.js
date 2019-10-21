@@ -1,5 +1,5 @@
 import React from 'react'
-import ParamsTmdbApi from '../ParamsTmdbApi'
+import SettingsTmdbApi from '../SettingsTmdbApi'
 import Card from './Card'
 import {FaSpinner} from 'react-icons/fa'
 
@@ -11,7 +11,7 @@ class LatestMovies extends React.Component {
     }
 
     componentDidMount() {
-        fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${ParamsTmdbApi.apiKey}&language=${ParamsTmdbApi.language}&page=1&region=${ParamsTmdbApi.region}`)
+        fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${SettingsTmdbApi.apiKey}&language=${SettingsTmdbApi.language}&page=1&region=${SettingsTmdbApi.region}`)
             .then(res => res.json())
             .then(
             (result) => {
