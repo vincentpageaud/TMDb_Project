@@ -61,7 +61,6 @@ class Search extends React.Component {
     }
     render() {
         if(this.props.keywords !== ""){
-            console.log(this.state.replyApi)
             return (
                 <div className="row m-3 mt-6">
                     {
