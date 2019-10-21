@@ -8,16 +8,38 @@ class Search extends React.Component {
         this.state = {
             error: null,
             isLoaded: false,
-            replyApi: []
+            replyApi: [],
+            changed: true,
+            keywords: '',
         };
+        this.refreshMovies();
     }
 
-    async componentWillReceiveProps(props) {
-        this.getMovies(props.keywords)
+    componentDidUpdate(props) {
+        if (props.keywords !== this.state.keywords) {
+            this.setState({
+                keywords: props.keywords,
+                changed: true
+            });
+        }
     }
 
-    async getMovies(keywords) {
-        let url = `https://api.themoviedb.org/3/search/multi?api_key=${SettingsTmdbApi.apiKey}&language=${SettingsTmdbApi.language}&query=${keywords}&page=1&include_adult=false&region=${SettingsTmdbApi.region}`;
+    refreshMovies() {
+        if (this.props.keywords !== '') {
+            if (this.state.changed) {
+                this.getMovies();
+                this.setState({
+                    changed: false,
+                })
+            }
+        }
+        setTimeout(() => {
+            this.refreshMovies();
+        }, 100);
+    }
+
+    async getMovies() {
+        let url = `https://api.themoviedb.org/3/search/multi?api_key=${SettingsTmdbApi.apiKey}&language=${SettingsTmdbApi.language}&query=${this.state.keywords}&page=1&include_adult=false&region=${SettingsTmdbApi.region}`;
         let res = await fetch(url, {
             method: "GET",
             headers: {
@@ -33,24 +55,24 @@ class Search extends React.Component {
         } else {
             this.setState({
                 isLoaded: true,
-                error: "An error occured..."
+                error: "Une erreur c'est produite..."
             })
         }
     }
     render() {
         if(this.props.keywords !== ""){
             return (
-            <div className="row m-3 mt-6">
-                {
-                    this.state.replyApi.map(item => <Card
-                        key={item.id}
-                        poster_path={item.poster_path}
-                        title={item.title}
-                        overview={item.overview} >
-                    </Card>
-                    )
-                }
-            </div>)
+                <div className="row m-3 mt-6">
+                    {
+                        this.state.replyApi.map(item => <Card
+                            key={item.id}
+                            poster_path={item.poster_path}
+                            title={item.title}
+                            overview={item.overview} >
+                        </Card>
+                        )
+                    }
+                </div>)
         }else{
             return ""
         }

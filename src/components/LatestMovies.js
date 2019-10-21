@@ -38,7 +38,7 @@ class LatestMovies extends React.Component {
                     key={item.id}
                     poster_path={item.poster_path}
                     title={item.title}
-                    overview={item.overview} >
+                    overview={item.overview.substr(0, 80) + "..."} >
                 </Card> ).slice(0, 8)
 
             return reply

@@ -38,7 +38,7 @@ class PopularSeries extends React.Component {
                     key={item.id}
                     poster_path={item.poster_path}
                     title={item.title}
-                    overview={item.overview} >
+                    overview={item.overview.substr(0, 80) + "..."} >
                 </Card> ).slice(0, 8)
 
             return reply
@@ -55,7 +55,7 @@ class PopularSeries extends React.Component {
         } else {
             return (
                 <section className="container">
-                    <h4>Popular TV show</h4>
+                    <h4>Popular TV shows</h4>
                     <hr />
                     <div className="row m-3 mt-6">
                         {cards()}
