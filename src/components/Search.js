@@ -6,11 +6,12 @@ class Search extends React.Component {
     state = {
         error: null,
         isLoaded: false,
-        replyApi: []
+        replyApi: [],
     }
 
-    componentDidMount() {
-        fetch(`https://api.themoviedb.org/3/search/multi?api_key=${ParamsTmdbApi.apiKey}&language=${ParamsTmdbApi.language}&query=Test&page=1&include_adult=false&region=${ParamsTmdbApi.region}`)
+    requestApi(keywords) {
+        console.log(keywords)
+        fetch(`https://api.themoviedb.org/3/search/multi?api_key=${ParamsTmdbApi.apiKey}&language=${ParamsTmdbApi.language}&query=${keywords}&page=1&include_adult=false&region=${ParamsTmdbApi.region}`)
             .then(res => res.json())
             .then(
             (result) => {
@@ -30,16 +31,18 @@ class Search extends React.Component {
 
     render() {
         if(this.props.keywords !== ""){
+            this.requestApi(this.props.keywords)
             const {error, isLoaded, replyApi} = this.state
             const cards = () => {
                 let reply = []
                 let i = 0
 
+                this.requestApi(this.props.keywords)
+
                 for(let result of replyApi.results){
                     reply.push(<Card key={i++} result={result} />)
                 }
-
-                console.log(reply.title)
+                
                 return reply
             }
             

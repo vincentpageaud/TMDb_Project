@@ -13,7 +13,6 @@ class Introduction extends React.Component{
     }
 
     render(){
-        console.log(this.state.valueSearch)
         return(
             <section className="jumbotron">
                 <div className="container">
