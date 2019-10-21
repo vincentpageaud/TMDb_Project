@@ -27,7 +27,7 @@ class Search extends React.Component {
     refreshMovies() {
         if (this.props.keywords !== '') {
             if (this.state.changed) {
-                this.getMovies();
+                this.getSearch();
                 this.setState({
                     changed: false,
                 })
@@ -38,7 +38,7 @@ class Search extends React.Component {
         }, 100);
     }
 
-    async getMovies() {
+    async getSearch() {
         let url = `https://api.themoviedb.org/3/search/multi?api_key=${SettingsTmdbApi.apiKey}&language=${SettingsTmdbApi.language}&query=${this.state.keywords}&page=1&include_adult=false&region=${SettingsTmdbApi.region}`;
         let res = await fetch(url, {
             method: "GET",

@@ -49,7 +49,11 @@ class PopularSeries extends React.Component {
         } else if (!isLoaded) {
             return (
                 <section className="container">
-                    <FaSpinner className="spinner" />
+                    <h4>Popular TV shows</h4>
+                    <hr />
+                    <div className="d-flex justify-content-center">
+                        <FaSpinner className="spinner" />
+                    </div>
                 </section>
             )
         } else {
