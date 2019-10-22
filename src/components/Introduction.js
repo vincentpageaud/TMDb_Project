@@ -12,6 +12,10 @@ class Introduction extends React.Component{
         })
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+    }
+
     render(){
         return(
             <section className="jumbotron">
@@ -19,7 +23,7 @@ class Introduction extends React.Component{
                     <h1 className="display-5">Welcome to TMDb_Project !</h1>
                     <p className="lead">Your reference on movies and series.</p>
                     <hr />
-                    <form className="form-inline">
+                    <form className="form-inline" onSubmit={this.handleSubmit}>
                         <input id="input-movie" className="col-sm-12 form-control" 
                             type="search" placeholder="Search by movie, TV show or actor..." 
                             aria-label="Search" onChange={this.handleChange.bind(this)} />
