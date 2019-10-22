@@ -10,3 +10,18 @@ header nav svg{
 @keyframes spinner {
     to {transform: rotate(360deg);}
 }
+
+.modal-cards{
+    animation: modal-cards 1s forwards;
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(61, 61, 61, 0.8);
+}
+@keyframes modal-cards {
+    to {opacity: 1;}
+}

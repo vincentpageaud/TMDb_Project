@@ -55,7 +55,7 @@ class Search extends React.Component {
         } else {
             this.setState({
                 isLoaded: true,
-                error: "Une erreur c'est produite..."
+                error: "An error occured..."
             })
         }
     }
@@ -68,7 +68,8 @@ class Search extends React.Component {
                             key={item.id}
                             poster_path={item.poster_path}
                             title={item.title}
-                            overview={item.overview} >
+                            overview={item.overview}
+                            item={item} >
                         </Card>
                         )
                     }
